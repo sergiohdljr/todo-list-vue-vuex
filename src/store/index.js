@@ -8,6 +8,7 @@ export default createStore({
   mutations: {
     ADD_TASK(state, payload) {
       state.tarefas.push(payload);
+      console.log(state.tarefas);
     },
   },
   actions: {},

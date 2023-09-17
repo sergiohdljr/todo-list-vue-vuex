@@ -9,13 +9,19 @@
 export default {
   data() {
     return {
+      id: 1,
       tarefa: "",
     };
+  },
+  computed: {
+    createId() {
+      return this.$store.state.tarefas.length > 0 ? this.id++ : this.id;
+    },
   },
   methods: {
     adicionarTarefa() {
       const objetoTarefa = {
-        id: this.id,
+        id: this.createId,
         tarefa: this.tarefa,
         completa: false,
       };
