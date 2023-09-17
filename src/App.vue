@@ -1,9 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" width="100"/>
+  <img alt="Vue logo" src="./assets/logo.png" width="100" />
   <div>
-    <input type="text" v-model="tarefa" />
-    <button @click="adicionarTarefa">Adicionar tarefa</button>
     <div class="container-tarefas">
+      <InputButtonAdd />
       <p v-for="tarefa in this.$store.state.tarefas">
         {{ tarefa.tarefa }} - completa: {{ tarefa.completa }}
       </p>
@@ -12,25 +11,20 @@
 </template>
 
 <script>
+import InputButtonAdd from "./components/Input-button-add.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    InputButtonAdd,
+  },
   data() {
     return {
       id: 1,
       tarefa: "",
     };
   },
-  methods: {
-    adicionarTarefa() {
-      const objetoTarefa = {
-        id: this.id,
-        tarefa: this.tarefa,
-        completa: false,
-      };
-      this.$store.commit("ADD_TASK", objetoTarefa);
-    },
-  },
+  methods: {},
 };
 </script>
 
