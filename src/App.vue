@@ -3,7 +3,13 @@
   <div>
     <div class="container-tarefas">
       <InputButtonAdd />
-      <Task v-for="tarefa in this.$store.state.tarefas" :tarefa="tarefa" />
+      <filters />
+      <Task
+        v-if="this.$store.state.tarefas.length > 0"
+        v-for="tarefa in this.$store.state.tarefas"
+        :tarefa="tarefa"
+      />
+      <p v-else>Nenhuma tarefa registrada ainda.</p>
     </div>
   </div>
 </template>
@@ -11,12 +17,14 @@
 <script>
 import InputButtonAdd from "./components/Input-button-add.vue";
 import Task from "./components/task.vue";
+import filters from "./components/filters.vue";
 
 export default {
   name: "App",
   components: {
     InputButtonAdd,
     Task,
+    filters,
   },
   data() {
     return {};
