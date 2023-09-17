@@ -5,7 +5,9 @@
       <button class="completar-task" @click="completarTarefa(tarefa.id)">
         &#10003;
       </button>
-      <button class="deletar-task">&#x2715;</button>
+      <button class="deletar-task" @click="deletarTarefa(tarefa.id)">
+        &#x2715;
+      </button>
     </div>
   </div>
 </template>
@@ -21,6 +23,9 @@ export default {
   methods: {
     completarTarefa(id) {
       this.$store.commit("COMPLETE_TASK", id);
+    },
+    deletarTarefa(id) {
+      this.$store.commit("DELETE_TASK", id);
     },
   },
 };

@@ -16,6 +16,9 @@ export default createStore({
         }
       });
     },
+    DELETE_TASK(state, id) {
+      state.tarefas = state.tarefas.filter((tarefa) => tarefa.id !== id);
+    },
   },
   actions: {},
   modules: {},
