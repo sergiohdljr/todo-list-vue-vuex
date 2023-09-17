@@ -2,13 +2,13 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    tarefas: [{ id: 1, tarefa: "tarefa teste", completa: true }],
+    tarefas: [],
   },
   getters: {},
   mutations: {
     ADD_TASK(state, payload) {
       state.tarefas.push(payload);
-      console.log(state.tarefas);
+      console.log(...state.tarefas);
     },
   },
   actions: {},
