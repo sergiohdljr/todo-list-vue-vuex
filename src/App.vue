@@ -3,20 +3,22 @@
   <div>
     <div class="container-tarefas">
       <InputButtonAdd />
-      <p v-for="tarefa in this.$store.state.tarefas">
-        {{ tarefa.tarefa }} - completa: {{ tarefa.completa }}
-      </p>
+      <Task v-for="tarefa in this.$store.state.tarefas" :tarefa="tarefa" />
     </div>
   </div>
 </template>
 
 <script>
 import InputButtonAdd from "./components/Input-button-add.vue";
+import Task from "./components/task.vue";
+import task from "./components/task.vue";
 
 export default {
   name: "App",
   components: {
     InputButtonAdd,
+    task,
+    Task,
   },
   data() {
     return {

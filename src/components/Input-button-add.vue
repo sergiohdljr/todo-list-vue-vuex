@@ -31,6 +31,7 @@ form {
   height: 40px;
   display: flex;
   align-items: stretch;
+  margin-bottom: 1.5rem;
 }
 
 input {
