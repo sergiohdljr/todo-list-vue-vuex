@@ -1,14 +1,15 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    tarefas: [],
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
+    ADD_TASK(state, payload){
+      state.tarefas.push(payload)
+    }
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
