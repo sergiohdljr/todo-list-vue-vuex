@@ -2,7 +2,9 @@
   <div class="Tarefa">
     <p :class="{ 'tarefa-completa': tarefa.completa }">{{ tarefa.tarefa }}</p>
     <div class="button-group">
-      <button class="completar-task">&#10003;</button>
+      <button class="completar-task" @click="completarTarefa(tarefa.id)">
+        &#10003;
+      </button>
       <button class="deletar-task">&#x2715;</button>
     </div>
   </div>
@@ -15,6 +17,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    completarTarefa(id) {
+      this.$store.commit("COMPLETE_TASK", id);
+    },
   },
 };
 </script>

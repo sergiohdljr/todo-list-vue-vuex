@@ -8,7 +8,13 @@ export default createStore({
   mutations: {
     ADD_TASK(state, payload) {
       state.tarefas.push(payload);
-      console.log(...state.tarefas);
+    },
+    COMPLETE_TASK(state, id) {
+      state.tarefas.forEach((tarefa) => {
+        if (tarefa.id === id) {
+          tarefa.completa = !tarefa.completa;
+        }
+      });
     },
   },
   actions: {},

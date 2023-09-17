@@ -9,7 +9,6 @@
 export default {
   data() {
     return {
-      id: 0,
       tarefa: "",
     };
   },
@@ -21,6 +20,7 @@ export default {
         completa: false,
       };
       this.$store.commit("ADD_TASK", objetoTarefa);
+      this.tarefa = "";
     },
   },
 };

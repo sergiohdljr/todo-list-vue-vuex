@@ -11,20 +11,15 @@
 <script>
 import InputButtonAdd from "./components/Input-button-add.vue";
 import Task from "./components/task.vue";
-import task from "./components/task.vue";
 
 export default {
   name: "App",
   components: {
     InputButtonAdd,
-    task,
     Task,
   },
   data() {
-    return {
-      id: 1,
-      tarefa: "",
-    };
+    return {};
   },
   methods: {},
 };
