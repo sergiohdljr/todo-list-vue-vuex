@@ -19,8 +19,15 @@ export default {
         tarefa: this.tarefa,
         completa: false,
       };
+
+      if (!this.tarefa) {
+        this.$store.commit("FORM_ERROR");
+        return;
+      }
+
       this.$store.commit("ADD_TASK", objetoTarefa);
       this.tarefa = "";
+      this.$store.commit("CLEAR_ERRORS_FORM");
     },
   },
 };

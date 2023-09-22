@@ -3,13 +3,20 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     tarefas: [],
+    formErros: [],
   },
   getters: {
-    doneTodosCount(state){
-     return state.tarefas.filter(tarefa => tarefa.completa).length
+    doneTodosCount(state) {
+      return state.tarefas.filter((tarefa) => tarefa.completa).length;
     },
     numberOfTasks(state) {
       return state.tarefas.length;
+    },
+    ErrorForm(state) {
+      if (state.formErros.length === 0) {
+        return false;
+      }
+      return state.formErros[0];
     },
   },
   mutations: {
@@ -28,6 +35,12 @@ export default createStore({
     },
     DELETE_COMPLETE_TASKS(state) {
       state.tarefas = state.tarefas.filter((tarefas) => !tarefas.completa);
+    },
+    FORM_ERROR(state) {
+      state.formErros.push("O campo não poder estar em branco.");
+    },
+    CLEAR_ERRORS_FORM(state) {
+      state.formErros = [];
     },
   },
   actions: {},

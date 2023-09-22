@@ -8,6 +8,7 @@
       </div>
 
       <InputButtonAdd />
+      <p v-if="this.$store.getters.ErrorForm">{{ errorForm }}</p>
       <filters />
       <Task
         v-if="this.$store.state.tarefas.length > 0"
@@ -37,6 +38,9 @@ export default {
     },
     totalOfTasks() {
       return this.$store.getters.numberOfTasks;
+    },
+    errorForm() {
+      return this.$store.getters.ErrorForm;
     },
   },
   data() {
