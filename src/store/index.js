@@ -4,7 +4,14 @@ export default createStore({
   state: {
     tarefas: [],
   },
-  getters: {},
+  getters: {
+    doneTodosCount(state){
+     return state.tarefas.filter(tarefa => tarefa.completa).length
+    },
+    numberOfTasks(state) {
+      return state.tarefas.length;
+    },
+  },
   mutations: {
     ADD_TASK(state, payload) {
       state.tarefas.push(payload);

@@ -2,6 +2,11 @@
   <img alt="Vue logo" src="./assets/logo.png" width="100" />
   <div>
     <div class="container-tarefas">
+      <div>
+        <p>tarefas completas: {{ doneTodosCount }}</p>
+        <p>total de tarefas: {{ totalOfTasks }}</p>
+      </div>
+
       <InputButtonAdd />
       <filters />
       <Task
@@ -25,6 +30,14 @@ export default {
     InputButtonAdd,
     Task,
     filters,
+  },
+  computed: {
+    doneTodosCount() {
+      return this.$store.getters.doneTodosCount;
+    },
+    totalOfTasks() {
+      return this.$store.getters.numberOfTasks;
+    },
   },
   data() {
     return {};
